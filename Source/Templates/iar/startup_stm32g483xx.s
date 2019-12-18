@@ -1,7 +1,7 @@
 ;*******************************************************************************
-;* @File Name          : startup_stm32g473xx.s
+;* @File Name          : startup_stm32g483xx.s
 ;* @Author             : MCD Application Team
-;* @Brief              : STM32G473xx Devices vector
+;* @Brief              : STM32G483xx Devices vector
 ;*******************************************************************************
 ;* Description        : This module performs:
 ;*                      - Set the initial SP
@@ -158,7 +158,7 @@ __vector_table
         DCD     I2C4_EV_IRQHandler                ; I2C4 event
         DCD     I2C4_ER_IRQHandler                ; I2C4 error
         DCD     SPI4_IRQHandler                   ; SPI4
-        DCD     0                                 ; Reserved
+        DCD     AES_IRQHandler                    ; AES global interrupt        DCD     0                                 ; Reserved
         DCD     0                                 ; Reserved
         DCD     0                                 ; Reserved
         DCD     0                                 ; Reserved
@@ -608,6 +608,11 @@ I2C4_ER_IRQHandler
         SECTION .text:CODE:NOROOT:REORDER(1)
 SPI4_IRQHandler
         B SPI4_IRQHandler
+
+        PUBWEAK AES_IRQHandler
+        SECTION .text:CODE:NOROOT:REORDER(1)
+AES_IRQHandler
+        B AES_IRQHandler
 
         PUBWEAK RNG_IRQHandler
         SECTION .text:CODE:NOROOT:REORDER(1)

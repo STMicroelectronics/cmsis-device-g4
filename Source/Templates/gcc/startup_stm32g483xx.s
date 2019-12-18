@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file      startup_stm32g474xx.s
+  * @file      startup_stm32g483xx.s
   * @author    MCD Application Team
-  * @brief     STM32G474xx devices vector table GCC toolchain.
+  * @brief     STM32G483xx devices vector table GCC toolchain.
   *            This module performs:
   *                - Set the initial SP
   *                - Set the initial PC == Reset_Handler,
@@ -169,8 +169,8 @@ g_pfnVectors:
 	.word	ADC1_2_IRQHandler
 	.word	USB_HP_IRQHandler
 	.word	USB_LP_IRQHandler
-	.word	FDCAN1_IT0_IRQHandler
-	.word	FDCAN1_IT1_IRQHandler
+	.word	0
+	.word	0
 	.word	EXTI9_5_IRQHandler
 	.word	TIM1_BRK_TIM15_IRQHandler
 	.word	TIM1_UP_TIM16_IRQHandler
@@ -215,14 +215,14 @@ g_pfnVectors:
 	.word	COMP1_2_3_IRQHandler
 	.word	COMP4_5_6_IRQHandler
 	.word	COMP7_IRQHandler
-	.word	HRTIM1_Master_IRQHandler
-	.word	HRTIM1_TIMA_IRQHandler
-	.word	HRTIM1_TIMB_IRQHandler
-	.word	HRTIM1_TIMC_IRQHandler
-	.word	HRTIM1_TIMD_IRQHandler
-	.word	HRTIM1_TIME_IRQHandler
-	.word	HRTIM1_FLT_IRQHandler
-	.word	HRTIM1_TIMF_IRQHandler
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
+	.word	0
 	.word	CRS_IRQHandler
 	.word	SAI1_IRQHandler
 	.word	TIM20_BRK_IRQHandler
@@ -233,11 +233,11 @@ g_pfnVectors:
 	.word	I2C4_EV_IRQHandler
 	.word	I2C4_ER_IRQHandler
 	.word	SPI4_IRQHandler
+	.word	AES_IRQHandler
 	.word	0
-	.word	FDCAN2_IT0_IRQHandler
-	.word	FDCAN2_IT1_IRQHandler
-	.word	FDCAN3_IT0_IRQHandler
-	.word	FDCAN3_IT1_IRQHandler
+	.word	0
+	.word	0
+	.word	0
 	.word	RNG_IRQHandler
 	.word	LPUART1_IRQHandler
 	.word	I2C3_EV_IRQHandler
@@ -348,12 +348,6 @@ g_pfnVectors:
 
 	.weak	USB_LP_IRQHandler
 	.thumb_set USB_LP_IRQHandler,Default_Handler
-
-	.weak	FDCAN1_IT0_IRQHandler
-	.thumb_set FDCAN1_IT0_IRQHandler,Default_Handler
-
-	.weak	FDCAN1_IT1_IRQHandler
-	.thumb_set FDCAN1_IT1_IRQHandler,Default_Handler
 
 	.weak	EXTI9_5_IRQHandler
 	.thumb_set EXTI9_5_IRQHandler,Default_Handler
@@ -487,30 +481,6 @@ g_pfnVectors:
 	.weak	COMP7_IRQHandler
 	.thumb_set COMP7_IRQHandler,Default_Handler
 
-	.weak	HRTIM1_Master_IRQHandler
-	.thumb_set HRTIM1_Master_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_TIMA_IRQHandler
-	.thumb_set HRTIM1_TIMA_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_TIMB_IRQHandler
-	.thumb_set HRTIM1_TIMB_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_TIMC_IRQHandler
-	.thumb_set HRTIM1_TIMC_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_TIMD_IRQHandler
-	.thumb_set HRTIM1_TIMD_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_TIME_IRQHandler
-	.thumb_set HRTIM1_TIME_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_FLT_IRQHandler
-	.thumb_set HRTIM1_FLT_IRQHandler,Default_Handler
-
-	.weak	HRTIM1_TIMF_IRQHandler
-	.thumb_set HRTIM1_TIMF_IRQHandler,Default_Handler
-
 	.weak	CRS_IRQHandler
 	.thumb_set CRS_IRQHandler,Default_Handler
 
@@ -541,17 +511,9 @@ g_pfnVectors:
 	.weak	SPI4_IRQHandler
 	.thumb_set SPI4_IRQHandler,Default_Handler
 
-	.weak	FDCAN2_IT0_IRQHandler
-	.thumb_set FDCAN2_IT0_IRQHandler,Default_Handler
+	.weak	AES_IRQHandler
+	.thumb_set AES_IRQHandler,Default_Handler
 
-	.weak	FDCAN2_IT1_IRQHandler
-	.thumb_set FDCAN2_IT1_IRQHandler,Default_Handler
-
-	.weak	FDCAN3_IT0_IRQHandler
-	.thumb_set FDCAN3_IT0_IRQHandler,Default_Handler
-
-	.weak	FDCAN3_IT1_IRQHandler
-	.thumb_set FDCAN3_IT1_IRQHandler,Default_Handler
 
 	.weak	RNG_IRQHandler
 	.thumb_set RNG_IRQHandler,Default_Handler
