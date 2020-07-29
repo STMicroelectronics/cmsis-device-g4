@@ -1,9 +1,9 @@
 ;*******************************************************************************
-;* @File Name          : startup_stm32gbk1cb.s
+;* @File Name          : startup_stm32g491xx.s
 ;* @Author             : MCD Application Team
 ;* @Brief              : Vector table for MDK-ARM toolchain
 ;*******************************************************************************
-;* Description        : STM32GBK1CB Mainstream devices vector table for
+;* Description        : STM32G491xx Mainstream devices vector table for
 ;*                      MDK-ARM toolchain.
 ;*                      This module performs:
 ;*                      - Set the initial SP
@@ -96,7 +96,7 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     DMA1_Channel4_IRQHandler          ; DMA1 Channel 4
                 DCD     DMA1_Channel5_IRQHandler          ; DMA1 Channel 5
                 DCD     DMA1_Channel6_IRQHandler          ; DMA1 Channel 6
-                DCD     0                                 ; Reserved
+                DCD     DMA1_Channel7_IRQHandler          ; DMA1 Channel 7
                 DCD     ADC1_2_IRQHandler                 ; ADC1 and ADC2
                 DCD     USB_HP_IRQHandler                 ; USB Device High Priority
                 DCD     USB_LP_IRQHandler                 ; USB Device Low Priority
@@ -126,13 +126,13 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     TIM8_UP_IRQHandler                ; TIM8 Update Interrupt
                 DCD     TIM8_TRG_COM_IRQHandler           ; TIM8 Trigger, Commutation, Direction change and Index Interrupt
                 DCD     TIM8_CC_IRQHandler                ; TIM8 Capture Compare Interrupt
-                DCD     0                                 ; Reserved
+                DCD     ADC3_IRQHandler                   ; ADC3
                 DCD     0                                 ; Reserved
                 DCD     LPTIM1_IRQHandler                 ; LP TIM1 interrupt
                 DCD     0                                 ; Reserved
                 DCD     SPI3_IRQHandler                   ; SPI3
-                DCD     0                  				  ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     UART4_IRQHandler                  ; UART4
+                DCD     UART5_IRQHandler                  ; UART5
                 DCD     TIM6_DAC_IRQHandler               ; TIM6 and DAC1&3 underrun errors
                 DCD     TIM7_IRQHandler                   ; TIM7
                 DCD     DMA2_Channel1_IRQHandler          ; DMA2 Channel 1
@@ -156,17 +156,17 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     0                                 ; Reserved
                 DCD     CRS_IRQHandler                    ; CRS Interrupt
                 DCD     SAI1_IRQHandler                   ; Serial Audio Interface 1 global interrupt
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     TIM20_BRK_IRQHandler              ; TIM20 Break, Transition error and Index error
+                DCD     TIM20_UP_IRQHandler               ; TIM20 Update
+                DCD     TIM20_TRG_COM_IRQHandler          ; TIM20 Trigger, Commutation, Direction change and Index
+                DCD     TIM20_CC_IRQHandler               ; TIM20 Capture Compare
                 DCD     FPU_IRQHandler                    ; FPU
                 DCD     0                                 ; Reserved
                 DCD     0                                 ; Reserved
                 DCD     0                                 ; Reserved
                 DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     FDCAN2_IT0_IRQHandler             ; FDCAN2 interrupt line 0
+                DCD     FDCAN2_IT1_IRQHandler             ; FDCAN2 interrupt line 1
                 DCD     0                                 ; Reserved
                 DCD     0                                 ; Reserved
                 DCD     RNG_IRQHandler                    ; RNG global interrupt
@@ -174,11 +174,11 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     I2C3_EV_IRQHandler                ; I2C3 Event
                 DCD     I2C3_ER_IRQHandler                ; I2C3 Error
                 DCD     DMAMUX_OVR_IRQHandler             ; DMAMUX overrun global interrupt
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     QUADSPI_IRQHandler                ; QUADSPI
+                DCD     DMA1_Channel8_IRQHandler          ; DMA1 Channel 8
                 DCD     DMA2_Channel6_IRQHandler          ; DMA2 Channel 6
-                DCD     0                                 ; Reserved
-                DCD     0                                 ; Reserved
+                DCD     DMA2_Channel7_IRQHandler          ; DMA2 Channel 7
+                DCD     DMA2_Channel8_IRQHandler          ; DMA2 Channel 8
                 DCD     CORDIC_IRQHandler                 ; CORDIC
                 DCD     FMAC_IRQHandler                   ; FMAC
 
@@ -263,6 +263,7 @@ Default_Handler PROC
         EXPORT     DMA1_Channel4_IRQHandler          [WEAK]
         EXPORT     DMA1_Channel5_IRQHandler          [WEAK]
         EXPORT     DMA1_Channel6_IRQHandler          [WEAK]
+        EXPORT     DMA1_Channel7_IRQHandler          [WEAK]
         EXPORT     ADC1_2_IRQHandler                 [WEAK]
         EXPORT     USB_HP_IRQHandler                 [WEAK]
         EXPORT     USB_LP_IRQHandler                 [WEAK]
@@ -292,8 +293,11 @@ Default_Handler PROC
         EXPORT     TIM8_UP_IRQHandler                [WEAK]
         EXPORT     TIM8_TRG_COM_IRQHandler           [WEAK]
         EXPORT     TIM8_CC_IRQHandler                [WEAK]
+        EXPORT     ADC3_IRQHandler                   [WEAK]
         EXPORT     LPTIM1_IRQHandler                 [WEAK]
         EXPORT     SPI3_IRQHandler                   [WEAK]
+        EXPORT     UART4_IRQHandler                  [WEAK]
+        EXPORT     UART5_IRQHandler                  [WEAK]
         EXPORT     TIM6_DAC_IRQHandler               [WEAK]
         EXPORT     TIM7_IRQHandler                   [WEAK]
         EXPORT     DMA2_Channel1_IRQHandler          [WEAK]
@@ -306,13 +310,23 @@ Default_Handler PROC
         EXPORT     COMP4_IRQHandler                  [WEAK]
         EXPORT     CRS_IRQHandler                    [WEAK]
         EXPORT     SAI1_IRQHandler                   [WEAK]
+        EXPORT     TIM20_BRK_IRQHandler              [WEAK]
+        EXPORT     TIM20_UP_IRQHandler               [WEAK]
+        EXPORT     TIM20_TRG_COM_IRQHandler          [WEAK]
+        EXPORT     TIM20_CC_IRQHandler               [WEAK]
         EXPORT     FPU_IRQHandler                    [WEAK]
+        EXPORT     FDCAN2_IT0_IRQHandler             [WEAK]
+        EXPORT     FDCAN2_IT1_IRQHandler             [WEAK]
         EXPORT     RNG_IRQHandler                    [WEAK]
         EXPORT     LPUART1_IRQHandler                [WEAK]
         EXPORT     I2C3_EV_IRQHandler                [WEAK]
         EXPORT     I2C3_ER_IRQHandler                [WEAK]
         EXPORT     DMAMUX_OVR_IRQHandler             [WEAK]
+        EXPORT     QUADSPI_IRQHandler                [WEAK]
+        EXPORT     DMA1_Channel8_IRQHandler          [WEAK]
         EXPORT     DMA2_Channel6_IRQHandler          [WEAK]
+        EXPORT     DMA2_Channel7_IRQHandler          [WEAK]
+        EXPORT     DMA2_Channel8_IRQHandler          [WEAK]
         EXPORT     CORDIC_IRQHandler                 [WEAK]
         EXPORT     FMAC_IRQHandler                   [WEAK]
 
@@ -333,6 +347,7 @@ DMA1_Channel3_IRQHandler
 DMA1_Channel4_IRQHandler
 DMA1_Channel5_IRQHandler
 DMA1_Channel6_IRQHandler
+DMA1_Channel7_IRQHandler
 ADC1_2_IRQHandler
 USB_HP_IRQHandler
 USB_LP_IRQHandler
@@ -362,8 +377,11 @@ TIM8_BRK_IRQHandler
 TIM8_UP_IRQHandler
 TIM8_TRG_COM_IRQHandler
 TIM8_CC_IRQHandler
+ADC3_IRQHandler
 LPTIM1_IRQHandler
 SPI3_IRQHandler
+UART4_IRQHandler
+UART5_IRQHandler
 TIM6_DAC_IRQHandler
 TIM7_IRQHandler
 DMA2_Channel1_IRQHandler
@@ -376,13 +394,23 @@ COMP1_2_3_IRQHandler
 COMP4_IRQHandler
 CRS_IRQHandler
 SAI1_IRQHandler
+TIM20_BRK_IRQHandler
+TIM20_UP_IRQHandler
+TIM20_TRG_COM_IRQHandler
+TIM20_CC_IRQHandler
 FPU_IRQHandler
+FDCAN2_IT0_IRQHandler
+FDCAN2_IT1_IRQHandler
 RNG_IRQHandler
 LPUART1_IRQHandler
 I2C3_EV_IRQHandler
 I2C3_ER_IRQHandler
 DMAMUX_OVR_IRQHandler
+QUADSPI_IRQHandler
+DMA1_Channel8_IRQHandler
 DMA2_Channel6_IRQHandler
+DMA2_Channel7_IRQHandler
+DMA2_Channel8_IRQHandler
 CORDIC_IRQHandler
 FMAC_IRQHandler
 
