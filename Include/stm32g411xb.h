@@ -2995,7 +2995,7 @@ typedef struct
 
 /********************  Bits definition for DMAMUX_CxCR register  **************/
 #define DMAMUX_CxCR_DMAREQ_ID_Pos                    (0U)
-#define DMAMUX_CxCR_DMAREQ_ID_Msk                    (0xFFUL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x000000FF */
+#define DMAMUX_CxCR_DMAREQ_ID_Msk                    (0x7FUL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x0000007F */
 #define DMAMUX_CxCR_DMAREQ_ID                        DMAMUX_CxCR_DMAREQ_ID_Msk
 #define DMAMUX_CxCR_DMAREQ_ID_0                      (0x01UL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x00000001 */
 #define DMAMUX_CxCR_DMAREQ_ID_1                      (0x02UL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x00000002 */
@@ -3004,6 +3004,8 @@ typedef struct
 #define DMAMUX_CxCR_DMAREQ_ID_4                      (0x10UL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x00000010 */
 #define DMAMUX_CxCR_DMAREQ_ID_5                      (0x20UL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x00000020 */
 #define DMAMUX_CxCR_DMAREQ_ID_6                      (0x40UL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x00000040 */
+
+/* Legacy defines */
 #define DMAMUX_CxCR_DMAREQ_ID_7                      (0x80UL << DMAMUX_CxCR_DMAREQ_ID_Pos)/*!< 0x00000080 */
 
 #define DMAMUX_CxCR_SOIE_Pos                         (8U)
