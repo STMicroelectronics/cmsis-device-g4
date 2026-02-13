@@ -9346,8 +9346,8 @@ typedef struct
 #define RNG_CR_IE_Msk       (0x1UL << RNG_CR_IE_Pos)                           /*!< 0x00000008 */
 #define RNG_CR_IE           RNG_CR_IE_Msk
 #define RNG_CR_CED_Pos      (5U)
-#define RNG_CR_CED_Msk      (0x1UL << RNG_CR_IE_Pos)                           /*!< 0x00000020 */
-#define RNG_CR_CED          RNG_CR_IE_Msk
+#define RNG_CR_CED_Msk      (0x1UL << RNG_CR_CED_Pos)                           /*!< 0x00000020 */
+#define RNG_CR_CED          RNG_CR_CED_Msk
 
 /********************  Bits definition for RNG_SR register  *******************/
 #define RNG_SR_DRDY_Pos     (0U)

@@ -1,43 +1,32 @@
-# STM32CubeG4 CMSIS Device MCU Component
+# STM32G4 CMSIS Device Interface MCU Software Component
 
-## Overview
+![tag](https://img.shields.io/badge/tag-1.2.6-brightgreen.svg)
 
-**STM32Cube** is an STMicroelectronics original initiative to ease developers' life by reducing efforts, time and cost.
+## Overview of the STM32Cube MCU offer on GitHub
 
-**STM32Cube** covers the overall STM32 products portfolio. It includes a comprehensive embedded software platform delivered for each STM32 series.
-   * The CMSIS modules (core and device) corresponding to the ARM(tm) core implemented in this STM32 product.
-   * The STM32 HAL-LL drivers, an abstraction layer offering a set of APIs ensuring maximized portability across the STM32 portfolio.
-   * The BSP drivers of each evaluation, demonstration or nucleo board provided for this STM32 series.
-   * A consistent set of middleware libraries such as RTOS, USB, FatFS, graphics, touch sensing library...
-   * A full set of software projects (basic examples, applications, and demonstrations) for each board provided for this STM32 series.
+**STM32Cube** is an original initiative by STMicroelectronics to **simplify** prototyping and development by **reducing** effort, time, and cost. It supports the entire ARM™ Cortex-based STM32 microcontroller portfolio and provides a **comprehensive** software solution including:
+  * The CMSIS Core and Device interfaces enabling access to processor core features and device-specific peripherals of STM32 microcontrollers.
+  * The STM32 HAL-LL drivers, an abstraction layer offering a set of APIs ensuring maximized portability across the STM32 portfolio.
+  * The BSP drivers enabling access to peripherals on the STM32 development boards, external to the microcontroller itself.
+  * A consistent set of middleware libraries offering standardized, high-level functionalities — such as USB, TCP/IP, file systems, and graphics.
+  * A full set of software projects (basic examples, applications, and demonstrations) that showcase specific functionalities or use cases, and provided with support for multiple IDEs.
 
-Two models of publication are proposed for the STM32Cube embedded software:
-   * The monolithic **MCU Package**: all STM32Cube software modules of one STM32 series are present (Drivers, Middleware, Projects, Utilities) in the repository (usual name **STM32Cubexx**, xx corresponding to the STM32 series).
-   * The **MCU component**: each STM32Cube software module being part of the STM32Cube MCU Package, is delivered as an individual repository, allowing the user to select and get only the required software functions.
+The **STM32Cube embedded software** is available in two flavors:
+  * The **MCU Firmware** _monolithic_ offer, where **all** software components (Drivers, Middleware, Projects, Utilities) are included in a **single** repository for each STM32 series.
+  * The **MCU Software Components** _modular_ offer, where **each** software component (mainly Drivers and Middleware) is provided in a **dedicated** repository, allowing users to **select** only the components they need.
 
 ## Description
 
-This **cmsis_device_g4** MCU component repo is one element of the STM32CubeG4 MCU embedded software package, providing the **cmsis device** part.
+This repository provides the STM32Cube **CMSIS Device Interface** of the **STM32CubeG4** MCU firmware.
 
 ## Release note
 
-Details about the content of this release are available in the release note [here](https://htmlpreview.github.io/?https://github.com/STMicroelectronics/cmsis_device_g4/blob/master/Release_Notes.html).
+Details about the content of this release are available in the release note [here](https://htmlpreview.github.io/?https://github.com/STMicroelectronics/cmsis-device-g4/blob/master/Release_Notes.html).
 
 ## Compatibility information
 
-In this table, you can find the successive versions of this CMSIS Device component, in-line with the corresponding versions of the full MCU package:
+Please refer to [this](https://htmlpreview.github.io/?https://github.com/STMicroelectronics/STM32CubeG4/blob/master/Release_Notes.html) **release note**. It is **important** to use a **consistent set** of software versions as specified.
 
-CMSIS Device G4 | CMSIS Core | Was delivered in the full MCU package
---------------- | ---------- | -------------------------------------
-Tag v1.0.0 | Tag v5.4.0_cm4 | Tag v1.0.0
-Tag v1.1.0 | Tag v5.4.0_cm4 | Tag v1.1.0
-Tag v1.1.1 | Tag v5.4.0_cm4 | Tag v1.2.0
-Tag v1.2.0 | Tag v5.6.0_cm4 | Tag v1.3.0
-Tag v1.2.1 | Tag v5.6.0_cm4 | Tag v1.4.0
-Tag v1.2.2 | Tag v5.6.0_cm4 | Tag v1.5.0
+## Feedback and contributions
 
-The full **STM32CubeG4** MCU package is available [here](https://github.com/STMicroelectronics/STM32CubeG4).
-
-## Troubleshooting
-
-Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) guide.
+We value and appreciate feedback and contributions from the community. Please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file for details on how to participate effectively.
